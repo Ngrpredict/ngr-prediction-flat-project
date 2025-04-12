@@ -2,82 +2,34 @@ import React from 'react';
 
 const PricingPage = () => {
   return (
-    <div className="min-h-screen bg-white text-gray-900 p-6">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-10">NGR Predictions Pricing</h1>
+    <div className="p-6 max-w-4xl mx-auto text-center font-sans">
+      <h1 className="text-3xl font-bold mb-6">Our Subscription Plans</h1>
+      <p className="mb-4 text-gray-600">Choose your preferred access level to unlock premium football predictions.</p>
+      <p className="mb-8 text-green-600 font-bold text-xl">✅ 98.9% Prediction Accuracy</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Weekly Plan */}
-          <div className="border rounded-2xl shadow-md p-6 text-center">
-            <h2 className="text-2xl font-semibold mb-2">Weekly</h2>
-            <p className="text-3xl font-bold mb-4">€5 <span className="text-sm font-normal">/ week</span>
-            </p>
-            <ul className="mb-6 text-sm text-left list-disc list-inside">
-              <li>Full premium predictions</li>
-              <li>Match analysis</li>
-              <li>Odds & tips</li>
-              <li>24/7 access</li>
-            </ul>
-            <a
-              href="https://buy.stripe.com/28ofZbcm43AB1cQdQQ"
-              className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Weekly Access
-            </a>
+      <div className="grid md:grid-cols-3 gap-6">
+        {[
+          { title: 'Weekly', price: '€3.33', stripe: 'https://buy.stripe.com/test_bIY2aSdS9bI24F2aEG' },
+          { title: 'Monthly', price: '€11.11', stripe: 'https://buy.stripe.com/test_3cs9Dk8xPcM6b3q000' },
+          { title: 'Yearly', price: '€111.11', stripe: 'https://buy.stripe.com/test_eVa9DkdS96nI5J66op' },
+        ].map(plan => (
+          <div key={plan.title} className="border p-4 rounded shadow">
+            <h2 className="text-xl font-bold">{plan.title} Plan</h2>
+            <p className="text-gray-700 mb-2">{plan.price}</p>
+            <a href={plan.stripe} target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-4 py-2 rounded inline-block mt-2 hover:bg-blue-700">Subscribe</a>
           </div>
+        ))}
+      </div>
 
-          {/* Monthly Plan */}
-          <div className="border rounded-2xl shadow-lg p-6 text-center bg-blue-50">
-            <h2 className="text-2xl font-semibold mb-2">Monthly</h2>
-            <p className="text-3xl font-bold mb-4">€11.11 <span className="text-sm font-normal">/ month</span>
-            </p>
-            <ul className="mb-6 text-sm text-left list-disc list-inside">
-              <li>All weekly features</li>
-              <li>Exclusive tips</li>
-              <li>Priority support</li>
-              <li>Bonus content</li>
-            </ul>
-            <a
-              href="https://buy.stripe.com/6oE9AN71Keff7BecMO"
-              className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Monthly Access
-            </a>
-          </div>
-
-          {/* Yearly Plan */}
-          <div className="border rounded-2xl shadow-md p-6 text-center">
-            <h2 className="text-2xl font-semibold mb-2">Yearly</h2>
-            <p className="text-3xl font-bold mb-4">€111.10 <span className="text-sm font-normal">/ year</span>
-            </p>
-            <ul className="mb-6 text-sm text-left list-disc list-inside">
-              <li>All monthly features</li>
-              <li>Early access to updates</li>
-              <li>Free upgrades</li>
-              <li>Save over 15%</li>
-            </ul>
-            <a
-              href="https://buy.stripe.com/28oeV771K4EFdZC7st"
-              className="bg-blue-600 text-white py-2 px-4 rounded-full hover:bg-blue-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Yearly Access
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <img
-            src="/images/pricing-banner.png"
-            alt="NGR Predictions"
-            className="mx-auto rounded-xl shadow-md w-full max-w-3xl"
-          />
-        </div>
+      <div className="mt-10 text-left">
+        <h2 className="text-2xl font-semibold mb-2">Also Accepting Crypto:</h2>
+        <ul className="text-sm text-gray-700 space-y-1 text-left">
+          <li>USDT (ERC20): <code>0xb4a92ecbdea143ba1dbfe11298e589e3d3242f77</code></li>
+          <li>USDC (ERC20): <code>0xb4a92ecbdea143ba1dbfe11298e589e3d3242f77</code></li>
+          <li>BTC: <code>15NH4LA8JJXSmCFXWWLvyNU8yu57gm6x8K</code></li>
+          <li>SOL: <code>2RGGZm2SqRdge1HC9TWaVEWNnhKGcQbwBf2TvdAR9Kw7</code></li>
+          <li>XRP: <code>rJn2zAPdFA193sixJwuFixRkYDUtx3apQh</code> (Tag: <strong>501283470</strong>)</li>
+        </ul>
       </div>
     </div>
   );
