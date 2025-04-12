@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import PricingPage from './components/PricingPage';
 import FreePredictionsPage from './components/FreePredictionsPage';
 import AdminPredictionForm from './components/AdminPredictionForm';
+import LoginPage from './components/LoginPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/pricing" element={<PricingPage />} />
       <Route path="/free-predictions" element={<FreePredictionsPage />} />
       <Route path="/admin" element={<AdminPredictionForm />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 }
