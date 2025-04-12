@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import PricingPage from './components/PricingPage';
 import FreePredictionsPage from './components/FreePredictionsPage';
 import AdminPredictionForm from './components/AdminPredictionForm';
 import LoginPage from './components/LoginPage';
+import PricingPage from './pages/PricingPage';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
