@@ -27,5 +27,8 @@ function App() {
 }
 
 export default App;
+import PricingPage from './components/PricingPage';
+
+<Route path="/pricing" element={<PricingPage />} />
 
     
