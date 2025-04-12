@@ -11,16 +11,17 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/pricing" element={<PricingPage />} />
       <Route path="/free-predictions" element={<FreePredictionsPage />} />
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute>
-            <AdminPredictionForm />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/pricing" element={
+        <ProtectedRoute>
+          <PricingPage />
+        </ProtectedRoute>
+      } />
+      <Route path="/admin" element={
+        <ProtectedRoute>
+          <AdminPredictionForm />
+        </ProtectedRoute>
+      } />
       <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
@@ -28,4 +29,4 @@ function App() {
 
 export default App;
 
-       
+  
