@@ -1,13 +1,12 @@
-// src/firebase/firebaseConfig.js
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MSG_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDmTxzjyEUr2lfhvW7m42S8jwh0kbdXzD0",
+  authDomain: "ngr-predictions-86fcc.firebaseapp.com",
+  projectId: "ngr-predictions-86fcc",
+  storageBucket: "ngr-predictions-86fcc.appspot.com", // this is correct now
+  messagingSenderId: "882774317247",
+  appId: "1:882774317247:web:e5c0a9400dfeec2f8f8e0a"
 };
 
 export const app = initializeApp(firebaseConfig);
