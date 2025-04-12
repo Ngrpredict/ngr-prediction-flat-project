@@ -11,6 +11,7 @@ import PremiumPredictions from './components/PremiumPredictions';
 import AdminDashboard from './components/AdminDashboard';
 import PaymentSuccess from './components/PaymentSuccess';
 import NotFoundPage from './components/NotFoundPage';
+import ContactPopup from './components/ContactPopup'; // New contact form component
 
 const PrivateRoute = ({ children }) => {
   const { currentUser, isPaidUser } = useAuth();
@@ -27,7 +28,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<><HomePage /><ContactPopup /></>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/free" element={<FreePredictions />} />
@@ -59,4 +60,3 @@ function App() {
 }
 
 export default App;
-
