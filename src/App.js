@@ -1,39 +1,62 @@
+// Entry: src/App.js
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './firebase/AuthContext';
+
 import HomePage from './components/HomePage';
-import FreePredictionsPage from './components/FreePredictionsPage';
-import AdminPredictionForm from './components/AdminPredictionForm';
 import LoginPage from './components/LoginPage';
-import PricingPage from './pages/PricingPage';
-import ProtectedRoute from './components/ProtectedRoute';
+import RegisterPage from './components/RegisterPage';
+import FreePredictions from './components/FreePredictions';
+import PremiumPredictions from './components/PremiumPredictions';
+import AdminDashboard from './components/AdminDashboard';
+import PaymentSuccess from './components/PaymentSuccess';
+import NotFoundPage from './components/NotFoundPage';
+
+const PrivateRoute = ({ children }) => {
+  const { currentUser, isPaidUser } = useAuth();
+  return currentUser && isPaidUser ? children : <Navigate to="/login" />;
+};
+
+const AdminRoute = ({ children }) => {
+  const { currentUser, isAdmin } = useAuth();
+  return currentUser && isAdmin ? children : <Navigate to="/login" />;
+};
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/free-predictions" element={<FreePredictionsPage />} />
-      <Route
-        path="/pricing"
-        element={
-          <ProtectedRoute>
-            <PricingPage />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute>
-            <AdminPredictionForm />
-          </ProtectedRoute>
-        }
-      />
-      <Route path="/login" element={<LoginPage />} />
-    </Routes>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/free" element={<FreePredictions />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+
+          <Route
+            path="/premium"
+            element={
+              <PrivateRoute>
+                <PremiumPredictions />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminDashboard />
+              </AdminRoute>
+            }
+          />
+
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
 export default App;
 
-  
-  
