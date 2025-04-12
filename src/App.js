@@ -12,16 +12,22 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/free-predictions" element={<FreePredictionsPage />} />
-      <Route path="/pricing" element={
-        <ProtectedRoute>
-          <PricingPage />
-        </ProtectedRoute>
-      } />
-      <Route path="/admin" element={
-        <ProtectedRoute>
-          <AdminPredictionForm />
-        </ProtectedRoute>
-      } />
+      <Route
+        path="/pricing"
+        element={
+          <ProtectedRoute>
+            <PricingPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute>
+            <AdminPredictionForm />
+          </ProtectedRoute>
+        }
+      />
       <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
@@ -29,4 +35,5 @@ function App() {
 
 export default App;
 
+  
   
